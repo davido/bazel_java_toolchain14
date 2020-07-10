@@ -2,7 +2,7 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
     name = "remote_java_tools_linux",
-    sha256 = "7abcbd244dd92270951592944a2efe9b4ce661123cc943b18b8f53ca78a3bc69",
+    sha256 = "4f6b25fd7f28d016890713b494b233955d57cd06ab561a288fed03ed11ceab84",
     urls = [
         "https://github.com/davido/java_tools/releases/download/v14.0/java_tools_javac14_linux-v14.0.zip",
     ],
