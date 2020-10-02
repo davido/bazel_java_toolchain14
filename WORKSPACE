@@ -1,13 +1,32 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
 http_archive(
     name = "remote_java_tools_linux",
-    sha256 = "196128eadc68a55fb42a1f990c84ee816f5b29320a72fe542fcfc4206ac3978a",
     urls = [
-        "https://mirror.bazel.build/bazel_java_tools/releases/javac14/v1.0/java_tools_javac14_linux-v1.0.zip",
-        "https://github.com/bazelbuild/java_tools/releases/download/javac14-v1.0/java_tools_javac14_linux-v1.0.zip",
+        "file:///home/davido/java_tools_java15.zip",
     ],
 )
+
+http_archive(
+    name = "openjdk15_linux_archive",
+    build_file_content = """
+java_runtime(name = 'runtime', srcs =  glob(['**']), visibility = ['//visibility:public'])
+exports_files(["WORKSPACE"], visibility = ["//visibility:public"])
+""",
+    strip_prefix = "zulu15.27.17-ca-jdk15.0.0-linux_x64",
+    urls = ["https://cdn.azul.com/zulu/bin/zulu15.27.17-ca-jdk15.0.0-linux_x64.tar.gz"],
+)
+
+#http_archive(
+#    name = "remote_java_tools_linux",
+#    sha256 = "196128eadc68a55fb42a1f990c84ee816f5b29320a72fe542fcfc4206ac3978a",
+#    urls = [
+#        "https://mirror.bazel.build/bazel_java_tools/releases/javac14/v1.0/java_tools_javac14_linux-v1.0.zip",
+#        "https://github.com/bazelbuild/java_tools/releases/download/javac14-v1.0/java_tools_javac14_linux-v1.0.zip",
+#    ],
+#)
 
 http_archive(
     name = "remote_java_tools_windows",

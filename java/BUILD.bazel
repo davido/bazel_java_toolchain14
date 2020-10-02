@@ -5,3 +5,11 @@ java_binary(
     jvm_flags = ["--enable-preview"],
     main_class = "Javac14Example",
 )
+
+java_binary(
+    name = "Javac15Example",
+    srcs = ["Javac15Example.java"],
+    javacopts = ["--enable-preview"],
+    jvm_flags = ["--enable-preview"],
+    main_class = "Javac15Example",
+)
